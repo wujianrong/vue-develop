@@ -5,6 +5,11 @@
 -->
 <template>
   <div>
-    详情页
+    详情页:<input type="text">
   </div>
 </template>
+<script>
+export default {
+  name: 'detail'
+}
+</script>

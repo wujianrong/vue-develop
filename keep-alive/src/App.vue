@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <router-view></router-view>
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <div class="menus">
+      <router-link to="/">首页</router-link>
+      <router-link to="list">列表页</router-link>
+      <router-link to="detail">详情页</router-link>
+    </div>
+    <keep-alive :include="vuexKeepAlivePages">
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
@@ -12,7 +19,13 @@ export default {
   name: 'App',
   components: {
     // HelloWorld
-  }
+  },
+  computed: {
+      vuexKeepAlivePages() {
+        console.log('保活页面', this.$store.state.keepAlive.VUEX_KEEP_ALIVE_PAGES)
+        return this.$store.state.keepAlive.VUEX_KEEP_ALIVE_PAGES
+      }
+    },
 }
 </script>
 
@@ -24,5 +37,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.menus {
+  margin: 20px auto;
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
 }
 </style>

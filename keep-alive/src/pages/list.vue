@@ -5,6 +5,12 @@
 -->
 <template>
   <div>
-    列表页
+    列表页:<input type="text">
   </div>
 </template>
+
+<script>
+export default {
+  name: 'list'
+}
+</script>

@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 import home from "./pages/home.vue"
 import list from "./pages/list.vue"
 import detail from "./pages/detail.vue"
-
+import store from './store'
 
 const router = new VueRouter({
   routes: [
@@ -18,35 +18,38 @@ const router = new VueRouter({
       path: '/',
       name: 'home',
       component: home,
-      meta: { title: '首页', keepAlive: true, toKeep: '*' }
+      meta: { title: '首页', toKeep: '*' }
     },
     {
       path: '/list',
       name: 'list',
       component: list,
-      meta: { title: '列表页', keepAlive: true, toKeep: ['detail'] }
+      meta: { title: '列表页', toKeep: ['detail'] }
     },
     {
       path: '/detail',
       name: 'detail',
       component: detail,
-      meta: { title: '详情页', keepAlive: false }
+      meta: { title: '详情页' }
     }
   ]
 })
 // router 全局前置守卫
-// router.beforeEach((to, form, next) => {
-//   // 决定当前页面是否需要被保活
-//   if (form.meta.toKeep) {
-//     if (form.meta.toKeep === '*' || form.meta.toKeep.includes(to.name)) {
-//       store.commit('addKeepAlive', form.name)
-//       setTimeout(() => {
-//         next()
-//       })
-//       return
-//     }
-//   }
-//   store.commit('removeKeepAlive', form.name)
-//   next()
-// })
+router.beforeEach((to, form, next) => {
+  console.log({store})
+  console.log({to})
+  console.log({form})
+  // 决定当前页面是否需要被保活
+  if (form.meta.toKeep) {
+    if (form.meta.toKeep === '*' || form.meta.toKeep.includes(to.name)) {
+      store.commit('addKeepAlive', form.name)
+      setTimeout(() => {
+        next()
+      })
+      return
+    }
+  }
+  store.commit('removeKeepAlive', form.name)
+  next()
+})
 export default router

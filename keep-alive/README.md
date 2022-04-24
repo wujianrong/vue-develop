@@ -60,13 +60,13 @@ const router = new VueRouter({
       path: '/list',
       name: 'list',
       component: list,
-      meta: { title: '组织成本', keepAlive: true, toKeep: ['detail'] }
+      meta: { title: '列表页', keepAlive: true, toKeep: ['detail'] }
     },
     {
       path: '/detail',
       name: 'detail',
       component: detail,
-      meta: { title: '组织成本', keepAlive: false }
+      meta: { title: '详情页', keepAlive: false }
     }
   ]
 })
