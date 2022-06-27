@@ -7,30 +7,37 @@ import Vue from 'vue'
 import VueRouter from "vue-router"
 Vue.use(VueRouter)
 // 引入组件
-import home from "./pages/home.vue"
-import list from "./pages/list.vue"
-import detail from "./pages/detail.vue"
+import home from "./demo/keep-alive/home.vue"
+import list from "./demo/keep-alive/list.vue"
+import detail from "./demo/keep-alive/detail.vue"
+import keyboard from "./demo/keyboard/index.vue"
 import store from './store'
 
 const router = new VueRouter({
   routes: [
     {
-      path: '/',
+      path: '/keep-alive',
       name: 'home',
       component: home,
       meta: { title: '首页', toKeep: '*' }
     },
     {
-      path: '/list',
+      path: '/keep-alive/list',
       name: 'list',
       component: list,
       meta: { title: '列表页', toKeep: ['detail'] }
     },
     {
-      path: '/detail',
+      path: '/keep-alive/detail',
       name: 'detail',
       component: detail,
       meta: { title: '详情页' }
+    },
+    {
+      path: '/keyboard',
+      name: 'keyboard',
+      component: keyboard,
+      meta: { title: '移动端键盘监听' }
     }
   ]
 })

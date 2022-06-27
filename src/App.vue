@@ -2,9 +2,9 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <div class="menus">
-      <router-link to="/">首页</router-link>
-      <router-link to="list">列表页</router-link>
-      <router-link to="detail">详情页</router-link>
+      <router-link :to="{name: 'home'}">首页</router-link>
+      <router-link :to="{name: 'list'}">列表页</router-link>
+      <router-link :to="{name: 'detail'}">详情页</router-link>
     </div>
     <keep-alive :include="vuexKeepAlivePages">
       <router-view />
