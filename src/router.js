@@ -7,6 +7,7 @@ import Vue from 'vue'
 import VueRouter from "vue-router"
 Vue.use(VueRouter)
 // 引入组件
+import index from "./demo/index.vue"
 import home from "./demo/keep-alive/home.vue"
 import list from "./demo/keep-alive/list.vue"
 import detail from "./demo/keep-alive/detail.vue"
@@ -16,22 +17,28 @@ import store from './store'
 const router = new VueRouter({
   routes: [
     {
+      path: '/',
+      name: 'index',
+      component: index,
+      meta: { title: '菜单', toKeep: '*' }
+    },
+    {
       path: '/keep-alive',
-      name: 'home',
+      name: 'keepAliveHome',
       component: home,
-      meta: { title: '首页', toKeep: '*' }
+      meta: { title: '保活-首页', toKeep: '*' }
     },
     {
       path: '/keep-alive/list',
-      name: 'list',
+      name: 'keepAliveList',
       component: list,
-      meta: { title: '列表页', toKeep: ['detail'] }
+      meta: { title: '保活-列表页', toKeep: ['keepAliveDetail'] }
     },
     {
       path: '/keep-alive/detail',
-      name: 'detail',
+      name: 'keepAliveDetail',
       component: detail,
-      meta: { title: '详情页' }
+      meta: { title: '保活-详情页' }
     },
     {
       path: '/keyboard',
