@@ -2,11 +2,11 @@
   <div id="app" :class="[appTheme]">
     <app-navbar />
     <div class="content">
-      <keep-alive :include="vuexKeepAlivePages">
-        <transition name="fade" mode="out-in">
+      <transition name="fade" mode="out-in">
+        <keep-alive :include="vuexKeepAlivePages">
           <router-view></router-view>
-        </transition>
-      </keep-alive>
+        </keep-alive>
+      </transition>
     </div>
   </div>
 </template>
