@@ -1,8 +1,3 @@
-<!--
- * @Description: 
- * @LastEditTime: 2021-12-13 17:19:42
- * @LastEditors: wujianrong
--->
 <template>
   <div>
     <van-cell title="首页 " :to="{name: 'keepAliveHome'}" is-link />

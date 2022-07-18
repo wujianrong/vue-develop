@@ -1,12 +1,6 @@
 <template>
-  <div id="app">
-    <van-nav-bar :title="headTitle" v-if="single">
-      <template #left>
-        <router-link :to="{name: 'index'}">
-          <van-icon name="home-o" color="#333333" size="22" />
-        </router-link>
-      </template>
-    </van-nav-bar>
+  <div id="app" :class="[appTheme]">
+    <app-navbar />
     <div class="content">
       <keep-alive :include="vuexKeepAlivePages">
         <transition name="fade" mode="out-in">
@@ -18,19 +12,20 @@
 </template>
 
 <script>
-
+import appNavbar from '@/components/navbar.vue'
+import { VUE_THEME_TYPE } from '@/store/modules/theme'
 export default {
   name: 'App',
+  components: {
+    appNavbar
+  },
   computed: {
     vuexKeepAlivePages() {
       console.log('保活页面', this.$store.state.keepAlive.VUEX_KEEP_ALIVE_PAGES)
       return this.$store.state.keepAlive.VUEX_KEEP_ALIVE_PAGES
     },
-    headTitle() {
-      return this.$route.meta.title || ''
-    },
-    single() {
-      return this.$route.query && this.$route.query.single !== '1'
+    appTheme() {
+      return `theme-${this.$store.state.theme[VUE_THEME_TYPE]}`
     }
   },
 }
@@ -38,13 +33,16 @@ export default {
 
 <style>
 html, body {
-  background-color: #f7f8fa;
+  height: 100%;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  background-color: var(--theme-bg);
+  color: var(--font-color);
+  height: 100%;
+  box-sizing: border-box;
 }
 .content {
   padding: 10px;

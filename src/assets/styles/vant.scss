@@ -1,0 +1,10 @@
+.van-cell, .radio-group, .van-cell--clickable:active {
+  background-color: var(--theme-bg);
+  color: var(--font-color);
+}
+.van-field__label, .van-radio__label {
+  color: var(--label-color);
+}
+.van-field__control {
+  color: var(--font-color);
+}

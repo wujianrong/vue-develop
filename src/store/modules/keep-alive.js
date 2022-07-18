@@ -1,5 +1,3 @@
-
-// ‘VUEX_KEEP_ALIVE_PAGES’， 只是一个标识，以vuex开头，看变量就大概能知道这个数据是存放在VUEX里面
 export const KEEP_ALIVE_PAGES = 'VUEX_KEEP_ALIVE_PAGES'
 export default {
   state: {
