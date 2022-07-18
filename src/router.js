@@ -16,7 +16,7 @@ const router = new VueRouter({
       path: '/',
       name: 'index',
       component: index,
-      meta: { title: '菜单', toKeep: '*' }
+      meta: { title: '菜单' }
     },
     {
       path: '/keep-alive',
