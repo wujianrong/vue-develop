@@ -1,0 +1,14 @@
+// 默认
+.theme-light {
+  --font-color: #333333; //默认字体颜色
+  --theme-bg: #ffffff;  //主背景颜色
+  --label-color: #666666; 
+}
+
+// 黑夜
+.theme-dark {
+  --font-color: #ffffff; //默认字体颜色
+  --theme-bg: #1F2436;  //主背景颜色
+  --label-color: #979797;
+}
+

@@ -2,6 +2,6 @@
 
 开发中遇到的常见的问题
 #### 在线预览
-![alt 在线预览](https://i.bmp.ovh/imgs/2022/06/29/c25326e63f709596.png)
+![alt 在线预览](https://s3.bmp.ovh/imgs/2022/07/18/65c882adb4efc8e1.png)
 
 [demo](https://wujianrong.github.io/vue-develop/index.html#/)
